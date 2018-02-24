@@ -4,7 +4,7 @@
 var mongoose = require('mongoose'),
 Flights = mongoose.model('Iberia');
 
-
+//GET
   exports.list_all_flights = function(req, res) {
     Flights.find({}, function(err, flights) {
       if (err)
@@ -13,19 +13,40 @@ Flights = mongoose.model('Iberia');
     });
   };
 
-
-  exports.create_a_flights = function(req, res) {
-    var new_task = new Flights(req.body);
-    new_task.save(function(err, flights) {
-      if (err)
+//POST
+  exports.find_flights = function(req, res) {
+    var ciudad = req.body.ciudad;
+    var destino = req.body.destino;
+    var fecha = req.body.fecha_salida;
+    console.log(req.body);
+    Flights.find({origen:ciudad ,destino : destino,fecha_salida : fecha},{_id:0, pasajeros: 0},function(err, result) {
+        if (err)
         res.send(err);
-      res.json(flights);
+      res.json(result);
     });
   };
 
 
 
+
+
 /*
+EXAMPLE POST FIND SOME
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("mydb");
+  dbo.collection("customers").find({}, { _id: 0, name: 1, address: 1 }).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
+});
+
+db.iberias.findOne({origen:"Madrid","vuelos_disponibles.origen":"Madrid","vuelos_disponibles.destino" : "Barcelona","vuelos_disponibles.fecha_salida" : "12-12-12"})
+
+
+
+
 exports.list_all_tasks = function(req, res) {
   Task.find({}, function(err, task) {
     if (err)

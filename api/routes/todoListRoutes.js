@@ -5,7 +5,7 @@ module.exports = function(app) {
   // todoList Routes
   app.route('/flights')
     .get(todoList.list_all_flights)
-    .post(todoList.create_a_flights);
+    .post(todoList.find_flights);
 
 /*
   app.route('/flights/:taskId')

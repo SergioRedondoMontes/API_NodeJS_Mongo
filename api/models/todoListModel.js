@@ -37,6 +37,7 @@ var FlightsSchemaAll = new Schema({
 });
 */
 
+//creamos el esquema con el nombre Iberia que posterior usaremos en el controlador
 var FlightsSchema = new Schema({
     
     num_vuelo: Number,

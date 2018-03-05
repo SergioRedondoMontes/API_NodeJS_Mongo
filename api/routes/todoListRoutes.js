@@ -7,6 +7,9 @@ module.exports = function(app) {
     .get(todoList.list_all_flights)
     .post(todoList.find_flights);
 
+    app.route('/flight')
+    .post(todoList.find_flight)
+
     app.route('/passenger')
     .post(todoList.list_passenger_fligth)
 

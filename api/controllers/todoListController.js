@@ -28,7 +28,20 @@ Flights = mongoose.model('Iberia');//cargamos el model Iberia que definimos el t
     });
   };
 
-//POST devuelve todos los pasageros de un vuelo
+  //POST devuelve los vuelos que coincidan con los paramentrod de busqueda(origen, destino y fecha)
+  exports.find_flight = function(req, res) {
+    var idVuelo = req.body.idVuelo;
+    console.log(req.body);
+    Flights.find({num_vuelo:idVuelo},/*parametros de busqueda*/
+        {_id:0, pasajeros: 0},/*datos que no queremos mostrar en el JSON que nos devuelve el result*/
+        function(err, result) {
+        if (err)
+        res.send(err);
+      res.json(result);
+    });
+  };
+
+//POST devuelve todos los pasajeros de un vuelo
 exports.list_passenger_fligth = function(req, res) {
   var idVuelo = req.body.idVuelo;
   Flights.find({num_vuelo:idVuelo},

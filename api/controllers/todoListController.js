@@ -6,7 +6,7 @@ Flights = mongoose.model('Iberia');//cargamos el model Iberia que definimos el t
 
 //GET devuelve todos los vuelos
   exports.list_all_flights = function(req, res) {
-    Flights.find({}, function(err, flights) {
+    Flights.find({},{_id:0, pasajeros: 0}, function(err, flights) {
       if (err)
         res.send(err);
       res.json(flights);
@@ -28,8 +28,28 @@ Flights = mongoose.model('Iberia');//cargamos el model Iberia que definimos el t
     });
   };
 
+//POST devuelve todos los pasageros de un vuelo
+exports.list_passenger_fligth = function(req, res) {
+  var idVuelo = req.body.idVuelo;
+  Flights.find({num_vuelo:idVuelo},
+    {_id:0, pasajeros: 1}, 
+    function(err, flights) {
+    if (err)
+      res.send(err);
+    res.json(flights);
+  });
+};
 
-
+//TODO POST actualiza un vuelo 
+exports.update_flights = function(req, res) {
+  var idVuelo = req.body.idVuelo;
+  var flights = req.body;
+  Flights.findOneAndUpdate({num_vuelo:idVuelo}, flights, {new: true}, function(err, flights) {
+    if (err)
+      res.send(err);
+    res.json(flights);
+  });
+};
 
 
 /*

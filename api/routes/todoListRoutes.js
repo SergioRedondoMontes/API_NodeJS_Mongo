@@ -7,10 +7,7 @@ module.exports = function(app) {
     .get(todoList.list_all_flights)
     .post(todoList.find_flights);
 
-/*
-  app.route('/flights/:taskId')
-    .get(todoList.read_a_task)
-    .put(todoList.update_a_task)
-    .delete(todoList.delete_a_task);
-    */
+    app.route('/passenger')
+    .post(todoList.list_passenger_fligth)
+
 };

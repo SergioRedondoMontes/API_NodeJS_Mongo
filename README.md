@@ -2,6 +2,42 @@ NodeJS - MongoDB -----> ADAT_Vuelos
 
 # Introducción
 
+En este tutorial, te ayudaré a crear una API RESTful.
+
+### Tools:
+- Node.js
+- MongoDB
+- Editor de texto (Atom, Sublime, etc)
+- Postman
+
+
+# Instalación
+
+## Primeros pasos
+- Abra su terminal y siga los siguientes pasos
+- Crear un nombre de carpeta todoListApi  ```mkdir todoListApi ```
+- Desplácese a la raíz de la carpeta recién creada  ```cd todoListApi ```
+- Crear un paquete. archivo JSON(Package. JSON es un archivo que proporciona la información necesaria a la NMP que le permite identificar el proyecto así como controlar las dependencias del proyecto. )
+- Crear un fichero llamado server.js  ```touch server.js```
+- Crear una carpeta llamada api  ```mkdir api ```
+dentro de esta carpeta llamada api, crear tres carpetas separadas llamadas modelos, rutas y controladores ejecutando
+ ```mkdir api/controladores api/modelos api/rutas ```
+
+
+- Crear todoListController. js en la carpeta api/Controller, todoListRoutes. js en la carpeta Routes, y todoListModel en la carpeta modelo  ```Touch api/Controllers/todoListController. js api/Models/todoListModel. js api/Routes/todoListRoutes. js ```
+
+## Configuración del servidor
+
+- vamos a instalar Express y nodemon, Express se utilizará para crear el servidor, mientras que nodemon nos ayudará a realizar un seguimiento de los cambios en nuestra aplicación observando los archivos modificados y reiniciar automáticamente el servidor.
+
+```npm install --save-dev nodemon```
+
+```npm install express --save```
+
+
+
+# Ejemplos de código
+
 ## Modelo
 
 [GitHub](https://github.com/SergioRedondoMontes/API_NodeJS_Mongo/blob/master/api/models/todoListModel.js)
